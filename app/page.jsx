@@ -9,8 +9,7 @@ const Home = () => {
             <span className="blue_gradient">Confess, Reflect, Grow</span>
         </h1>
         <p className="desc text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero facere ea porro iste explicabo ut nobis voluptatibus sequi quidem ducimus.
-        </p>
+        Experience the liberation of sharing your daily confessions. Connect with a community of like-minded individuals on a journey of personal growth, finding strength in vulnerability. Embrace the power of authenticity and discover the path to empowered living.        </p>
         <Feed/>
     </section>
   )

@@ -9,10 +9,11 @@ const handler = NextAuth({
             clientId : process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         }),
-    ],
+    ], 
+    callbacks: {
         async session({ session }){
             const sessionUser = await User.findOne({
-                email = session.User.email
+                email : session.user.email
             })
             session.user.id = sessionUser._id.toString();
             return session;
@@ -27,17 +28,18 @@ const handler = NextAuth({
                 // if not create one
                 if(!userExists){
                     await User.create({
-                        email:profile.email,
-                        username : profile.name.replace(" ", "").toLowerCase(),
+                        email: profile.email,
+                        username : profile.name.split(" ")[0].replace(/[^\w]/g, '').toLowerCase(),
                         image: profile.picture
                     })   
                 }
                 return 1;
 
-            } catch (error) {
+             } catch (error) {
                 console.log(error);
-                return 0;
+                return false;
             }
         }
+    }       
 })
 export { handler as GET, handler as POST };

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-let isConnected = 0;
+let isConnected = false;
 
 export const connectToDB = async () => {
     mongoose.set('strictQuery', true);
@@ -9,11 +9,11 @@ export const connectToDB = async () => {
         return;
     }
     try {
-        await mongoose.connect(process.env.MONGODB.URL, {
-            dbName: 'soulspeaks',
+        await mongoose.connect(process.env.MONGODB_URI, {
+            dbName: "soulspeaks",
             useNewUrlParser: true,
             useUnifiedTopology: true,
-        })
+        });
         isConnected = true;
         console.log("MongoDB is connected")
     } catch (error) {
