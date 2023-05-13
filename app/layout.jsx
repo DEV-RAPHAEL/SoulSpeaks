@@ -3,24 +3,24 @@ import Nav from '@components/Nav';
 import Provider from '@components/Provider';
 
 export const metadata = {
-    title: 'Soul Speaks',
-    description: 'Confess, Reflect, Grow'
+  title: 'Soul Speaks',
+  description: 'Confess, Reflect, Grow'
 }
 
-const Root = ({children}) => {
+const Root = ({ children }) => {
   return (
     <html lang="en">
-    <body>
-      <Provider>
-        <div className="main">
+      <body>
+        <Provider>
+          <div className="main">
             <div className="gradient" />
-        </div>
-        <main className="app">
+          </div>
+          <main className="app">
             <Nav />
-            { children }
-        </main>
-      </Provider>
-    </body>
+            {children}
+          </main>
+        </Provider>
+      </body>
     </html>
   )
 }
