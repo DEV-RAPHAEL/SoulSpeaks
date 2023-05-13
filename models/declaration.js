@@ -1,6 +1,5 @@
 import {Schema, model, models } from "mongoose";
 
-
 const DeclarationSchema = new Schema({
     creator: {
         type : Schema.Types.ObjectId,
@@ -15,5 +14,5 @@ const DeclarationSchema = new Schema({
         required : [true, 'Enter hashtag']
     }
 });
-const Declaration = models.Declaration || model('Declaration', DeclarationSchema);
-export default Declaration
+
+export default models.Declaration || model('Declaration', DeclarationSchema);
