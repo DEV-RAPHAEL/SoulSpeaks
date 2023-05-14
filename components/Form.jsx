@@ -37,7 +37,7 @@ const Form = ({
         <label htmlFor="">
           <span className="font-satoshi font-semibold text-base text-grey-700">
             Tag {' '}
-            <span font-normal>
+            <span className="font-normal">
               {'#benefit #day-to-day #blessedman'}
             </span>
           </span>
