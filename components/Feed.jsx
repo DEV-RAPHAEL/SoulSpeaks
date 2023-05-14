@@ -33,8 +33,11 @@ const Feed = () => {
     (async () => await fetchPosts())();
   }, []);
 
-  // search by post declaration and tag
-  const renderedPosts = posts.filter(post => post.declaration?.toLowerCase()?.includes(searchText.toLowerCase()))
+  // search by post declaration or tag
+  const renderedPosts = posts.filter(post =>
+    (post?.tag?.toLowerCase()?.includes(searchText.toLowerCase())) ||
+    (post?.declaration?.toLowerCase()?.includes(searchText.toLowerCase()))
+  )
 
   return (
     <section className="feed">
