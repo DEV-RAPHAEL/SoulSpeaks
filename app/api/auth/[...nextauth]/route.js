@@ -15,10 +15,11 @@ const handler = NextAuth({
             const sessionUser = await User.findOne({
                 email : session.user.email
             })
-            session.user.id = sessionUser._id.toString();
+            session.user.id = sessionUser?.id;
             return session;
         },
-        async signIn({profile}) {
+        async signIn({ profile }) {
+            console.log(profile)
             try {   
                 await connectToDB();
                 // check if user exists
@@ -34,12 +35,12 @@ const handler = NextAuth({
                     })
                 }
                 return 1;
-
-                } catch (error) {
+            } catch (error) {
                 console.log(error);
                 return false;
             }
         }
     }
 })
+
 export { handler as GET, handler as POST };
