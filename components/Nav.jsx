@@ -16,7 +16,7 @@ const Nav = () => {
     }
 
     (async () => await setUpProviders())();
-  }, [])
+  }, [session])
 
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
@@ -51,8 +51,7 @@ const Nav = () => {
                 width={37}
                 height={37}
                 className='rounded-full'
-                alt='profile'
-              />
+                alt='profile' />
             </Link>
           </div>
         ) : (
@@ -64,12 +63,10 @@ const Nav = () => {
                   type="button"
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
-                  className='black_btn'
-                >
+                  className='black_btn'>
                   Sign In
                 </button>
               ))
-
             }
           </>
         )}
@@ -84,23 +81,19 @@ const Nav = () => {
               height={37}
               className='rounded-full'
               alt='profile'
-              onClick={() => settoggleDropdown((prev) => !prev)}
-            />
-
+              onClick={() => settoggleDropdown(!toggleDropdown)} />
             {toggleDropdown && (
               <div className="dropdown">
                 <Link
                   href='/profile'
                   className='dropdown_link'
-                  onClick={() => settoggleDropdown(false)}
-                >
+                  onClick={() => settoggleDropdown(false)}>
                   My Profile
                 </Link>
                 <Link
                   href='/declare'
                   className='dropdown_link'
-                  onClick={() => settoggleDropdown(false)}
-                >
+                  onClick={() => settoggleDropdown(false)}>
                   Create Post
                 </Link>
                 <button
@@ -109,7 +102,8 @@ const Nav = () => {
                   onClick={() => {
                     settoggleDropdown(false);
                     signOut();
-                  }}>
+                  }
+                  }>
                   Sign Out
                 </button>
               </div>
