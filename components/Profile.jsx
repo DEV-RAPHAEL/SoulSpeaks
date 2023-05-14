@@ -1,9 +1,7 @@
 import Card from "./card";
 
+const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
 
-const Profile = ({
-  name, desc, data, handleEdit, handleDelete
-}) => {
   return (
     <section className="w-full">
       <h1 className="head_text text-left">
@@ -13,14 +11,11 @@ const Profile = ({
       <p className="desc text-left">
         {desc}
       </p>
-      {/*         <div className="mt-16 card_layout">
-          {data.map((post) => (
-          <Card key={post._id} 
-          post={post} 
-          />
-      ))}
-    </div> */}
-
+      <div className="mt-16 card_layout">
+        {data.map((post) => (
+          <Card key={post._id} post={post} />
+        ))}
+      </div>
     </section>
   )
 }
