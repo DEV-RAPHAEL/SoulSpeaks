@@ -38,6 +38,7 @@ const Card = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             src={copied === post.declaration
               ? '/assets/icons/tick.svg'
               : '/assets/icons/copy.svg'}
+            alt="copy_icon"
             width={12}
             height={14} />
         </div>
